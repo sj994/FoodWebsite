@@ -1,0 +1,554 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,500&family=Nunito:wght@200;400;600&display=swap');
+:root{
+    --black:#000000;
+    --yellow:#F6B831;
+    --green:#beef79;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Nunito',sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border:none;
+    text-transform: capitalize;
+    transition: all .2s linear
+}
+html{
+    font-size:62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+section{
+    padding: 2rem 9%;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 7%;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    z-index:1000;
+    color: var(--black);
+}
+header .logo{
+    color: black;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    text-decoration: none;
+}
+header .navbar a{
+font-size: 1.7rem;
+padding: .5rem 1.5rem;
+color: var(--black);
+text-decoration: none;
+}
+header .navbar a:active,
+header .navbar a:hover{
+    color: white;
+    background-color:var(--green);
+    border-radius: 2rem;
+    }
+header .icons i,
+header .icons a{
+font-size: 1.7rem;
+padding: .7rem 1.5rem;
+color: var(--black);
+border-radius: 10rem;
+}
+header .icons i:hover,
+header .icons a:hover{
+color: white;
+background-color:var(--green);
+transform: rotate(360deg);
+border-radius: 7rem;
+}
+
+header .icons #menu-bars{
+display: none;
+}
+
+.home .home-slider .slide{
+    display:flex;
+    align-items: cenetr;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+}
+.home .home-slider .content{
+  flex:1 1 45rem;
+  padding-top:30rem;
+}
+.home .home-slider .content span{
+    font-size: 2.5rem;
+    color: var(--black);
+  }
+  .home .home-slider .content h3{
+    font-size: 7rem;
+    color: var(--green);
+  }
+  .home .home-slider .content p{
+    font-size: 2.2rem;
+    color: var(--black);
+    padding: .5rem 0;
+  }
+.home .home-slider .image{
+    flex:1 1 45rem;
+  }
+  .home .home-slider .image img{
+    width: 80%;
+    transform: rotate(-45deg);
+  }
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size:1.7rem;
+    color: white;
+    background-color:var(--black);
+    border-radius:.5rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+}
+.btn:hover{
+  letter-spacing:.1rem;
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    
+}
+.heading h1{
+font-size:1.9rem;
+font-weight:600;
+}
+.heading span{
+    color: var(--green);
+}
+
+.products-container{
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,auto));
+    gap:1rem;
+    margin-top:2rem;
+}
+.products-container .box{
+    position: relative;
+    display:flex;
+    flex-direction:coulmn;
+    align-items:cenetr;
+    padding: 20px;
+    border-radius:0.5rem;
+}
+.products-container .box span{
+    color: var(--green);
+    font-weight: bold;
+    font-size:1.6rem;
+}
+.products-container .box img{
+   width: 100%;
+   height: 100px;
+   object-fit: contain;
+   object-position: center;
+}
+.products-container .box img:hover{
+    opacity: 0.7;
+ }
+.products-container .box h2{
+    font-size:1rem;
+    font-weight:bolder;
+}
+.products-container .box .fas{
+padding: 10px;
+background-color:var(--black);
+color: white;
+border-radius:5rem;
+margin-top:2rem;
+position: absolute;
+bottom: -8%;
+display:none;
+}
+.products-container .box .fas:hover{
+    background-color:var(--green);
+    transition:0.2s all linear;
+   
+}
+.products-container .box:hover .fas{
+    display:block;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.closeModal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    color: white;
+    background-color:transparent;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.about .row {
+display: flex;
+flex-wrap: wrap;
+gap: 1.5em;
+align-items: center;
+}
+.about .row .image{
+    flex: 1 1 45rem;
+}
+.about .row .image img{
+    width:100%;
+}
+.about .row .content{
+    flex: 1 1 45rem;
+}
+.about .row .content h3{
+    color: var(--green);
+    font-size: 4rem;
+    padding: .5rem 0;
+    line-height: 2;
+    font-weight:bolder;
+}
+.about .row .content .icons-container{
+   display:flex;
+   gap:1rem;
+   flex-wrap: wrap;
+   padding: 1rem 0;
+   margin-top: .5rem;
+}
+.about .row .content .icons-container .icons{
+   background-color: white;
+   border-radius:.5rem;
+   border: .1rem solid rgba(0,0,0,.2);
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   gap:1rem;
+   flex:1 1 17rem;
+   padding: 1.5rem 1rem;
+ }
+ .about .row .content .icons-container .icons i{
+    font-size:2.5rem;
+    color: var(--green);
+ }
+ .about .row .content .icons-container .icons span{
+    font-size:1.5rem;
+    color: var(--black);
+ }
+ .flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+   
+.app-btn .blu{
+     width: 45%;
+     max-width: 160px;
+     color: #fff;
+     margin: 20px 10px;
+
+     text-align: left;
+     border-radius: 5px;
+     text-decoration: none;
+     font-family: "Lucida Grande", sans-serif;
+     font-size: 10px;
+     text-transform: uppercase;
+
+}
+.blu {
+    width: 45%;
+    max-width: 160px;
+    color: #fff;
+    margin: 20px 10px;
+    text-align: left;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: "Lucida Grande", sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+      background-color: #101010;
+      transition: background-color 0.25s linear;}
+    .blu:hover{
+        background-color: #ffffff;
+    }
+      
+     .flex a i {
+      width: 20%;
+      text-align: center;
+      font-size: 28px;
+      margin-right: 7px;
+     }
+     .big-txt {
+      font-size: 17px;
+      text-transform: capitalize;
+     }
+   /* Footer */
+
+.list_footer {
+    margin: 0px;
+    padding: 0px;
+}
+.footer-section {
+  background: #000000;
+  position: relative;
+}
+.footer-cta {
+  border-bottom: 1px solid #000000;
+}
+.single-cta i {
+  color: var(--green);
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #757575;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: #7e7e7e;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #3B5998;
+}
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: var(--green);
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: var(--green);
+}
+.footer-widget ul li a {
+  color: #878787;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: var(--green);
+    padding: 13px 20px;
+    border: 1px solid var(--green);
+    top: 0;
+}
+.footer-widget .heading{
+    color: white;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+  background: #202020;
+  padding: 25px 0;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #878787;
+}
+.copyright-text p a{
+  color: var(--green);
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: var(--green);
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+}
+
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+@media(max-width:991px){
+    html{
+        font-size:55%;
+    } 
+    header{
+      padding: 1rem 2rem;  
+    }
+        section {
+            padding: 1rem 2rem;
+        }
+   }
+@media(max-width:768px){
+    header .icons #menu-bars{
+        display: inline-block;
+        }
+        header .navbar{
+            position: absolute;
+            top:100%;
+            left:0;
+            right: 0;
+            border-top: .1rem solid rgba(0,0,0,.2);
+            padding: 1rem;
+        }
+        header .navbar a{
+            display:block;
+            padding: 1.5rem;
+            margin:1rem;
+            font-size:2rem;
+            background-color: #eee;
+        }  
+}
